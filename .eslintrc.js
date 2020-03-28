@@ -56,6 +56,7 @@ module.exports = {
 
     curly: [2, 'all'],
     indent: ['error', 2, { SwitchCase: 1 }],
+    // 'new-cap': ['error', { newIsCap: false }],
     'arrow-body-style': ['error', 'as-needed'],
     'arrow-parens': 0,
     'no-underscore-dangle': 0,
