@@ -1,25 +1,48 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useCallback } from 'react';
 
 /**
  * API
  */
 import api from '../../api';
 
-import Movie from '../../components/Movie';
+import MovieContainer from '../../components/Movie/Container';
 
 /**
  * Store
  */
-import { Store } from '../../store/StoreProvider';
+import { Store } from '../../store/Provider';
 import * as ACTION_TYPE from '../../store/actions/types';
 
 const MovieScreen = () => {
   const { dispatch, state } = useContext(Store);
-  useEffect(() => {
-    api.test.get({ dispatch, type: ACTION_TYPE.GET_MOVIE });
+
+  const handleGetRandomMovie = useCallback(() => {
+    api.movie.random({ dispatch, type: ACTION_TYPE.GET_RANDOM_MOVIE });
   }, [dispatch]);
 
-  return <Movie movie={state.movie} />;
+  useEffect(() => {
+    handleGetRandomMovie();
+
+    return () => {
+      dispatch!(ACTION_TYPE.GET_RANDOM_MOVIE_RESET);
+    };
+  }, [dispatch, handleGetRandomMovie]);
+
+  function handleSave() {
+    api.movie.save({
+      dispatch,
+      type: ACTION_TYPE.SAVE_MOVIE,
+      movie: state.movie!
+    });
+  }
+
+  return (
+    <MovieContainer
+      movie={state.movie}
+      onSaveMovieClick={handleSave}
+      onRandomMovieClick={handleGetRandomMovie}
+    />
+  );
 };
 
 export default MovieScreen;
