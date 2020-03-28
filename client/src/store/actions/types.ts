@@ -1,2 +1,4 @@
-export const GET_MOVIE = 'GET_MOVIE';
-export const GET_MOVIE_RESET = 'GET_MOVIE_RESET';
+export const GET_RANDOM_MOVIE = 'GET_RANDOM_MOVIE';
+export const GET_RANDOM_MOVIE_RESET = 'GET_RANDOM_MOVIE_RESET';
+
+export const SAVE_MOVIE = 'SAVE_MOVIE';
