@@ -6,9 +6,9 @@ export const reducer = (
   action: { type: keyof typeof ACTION_TYPE; payload: any }
 ) => {
   switch (action.type) {
-    case ACTION_TYPE.GET_MOVIE:
+    case ACTION_TYPE.GET_RANDOM_MOVIE:
       return { ...state, movie: action.payload };
-    case ACTION_TYPE.GET_MOVIE_RESET:
+    case ACTION_TYPE.GET_RANDOM_MOVIE_RESET:
       return {};
     default:
       return state;
