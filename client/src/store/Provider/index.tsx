@@ -6,7 +6,7 @@ import React, {
   Dispatch
 } from 'react';
 import { reducer } from '../actions';
-import { StoreType } from '../../types';
+import { StoreType } from '../../shared/types';
 
 interface Context {
   state: StoreType;

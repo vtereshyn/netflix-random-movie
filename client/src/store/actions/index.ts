@@ -1,5 +1,5 @@
 import * as ACTION_TYPE from './types';
-import { StoreType } from '../../types';
+import { StoreType } from '../../shared/types';
 
 export const reducer = (
   state: StoreType,

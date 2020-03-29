@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { Movie as MovieType } from '../../../types';
+
+import { Movie as MovieType } from '../../../shared/types';
 
 interface Props {
   movie: MovieType | null;
