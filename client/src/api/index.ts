@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Dispatch } from 'react';
 
 import * as TYPE from '../store/actions/types';
-import { Movie } from '../types';
+import { Movie } from '../shared/types';
 
 const endpointUrl = (url = '') => `${process.env.REACT_APP_API_URL}/${url}`;
 

@@ -32,8 +32,8 @@
     "stripInternal": true,
     "typeRoots": [
       "node_modules/@types",
-      "src/types",
-      "src/types/lodash"
+      "src/shared/types",
+      "src/shared/types/lodash"
     ],
     "allowJs": true,
     "esModuleInterop": true,
