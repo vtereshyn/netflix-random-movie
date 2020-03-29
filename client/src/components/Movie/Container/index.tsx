@@ -4,11 +4,14 @@ import React, { FunctionComponent } from 'react';
  * Components
  */
 import MovieItem from '../Item';
+import MainContainer from '../../../containers/Main';
+import PrimaryButton, { SecondaryButton } from '../../Button';
+import ContentWrapper from '../../../containers/ContentWrapper';
 
 /**
  * Types
  */
-import { Movie } from '../../../types';
+import { Movie } from '../../../shared/types';
 
 interface Props {
   movie: Movie | null;
@@ -21,22 +24,17 @@ const Container: FunctionComponent<Props> = ({
   onSaveMovieClick,
   onRandomMovieClick
 }) => (
-  <section
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center'
-    }}
-  >
-    <button type="button" onClick={onRandomMovieClick}>
-      Get random movie
-    </button>
+  <MainContainer>
+    <ContentWrapper>
+      <PrimaryButton onClick={onRandomMovieClick}>
+        Get random movie
+      </PrimaryButton>
 
-    <button type="button" onClick={onSaveMovieClick}>
-      save
-    </button>
+      <SecondaryButton onClick={onSaveMovieClick}>Save</SecondaryButton>
+    </ContentWrapper>
+
     <MovieItem movie={movie} />
-  </section>
+  </MainContainer>
 );
 
 export default Container;
