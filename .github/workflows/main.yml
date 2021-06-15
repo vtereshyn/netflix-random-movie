@@ -1,32 +1,37 @@
-name: "build-test"
-on:
+name: 'ci'
+
+on: # rebuild any PRs and main branch changes
   pull_request:
   push:
     branches:
-      - master
+      - main
+      - 'releases/*'
 
 jobs:
-  dependencies:
+  build-client:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [13.7.0]
+
     steps:
       - uses: actions/checkout@v2
       - run: |
           yarn
+      - run: |
+          yarn build:client
+
   build-server:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [13.7.0]
+
     steps:
       - uses: actions/checkout@v2
       - run: |
-          yarn build
-  build-client:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+          yarn
       - run: |
-          yarn client
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: |
-          yarn lint
+          yarn build:server
