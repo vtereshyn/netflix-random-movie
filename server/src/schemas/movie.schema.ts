@@ -6,5 +6,5 @@ export const MovieSchema = new mongoose.Schema({
   title: String,
   overview: String,
   imdbRating: Number,
-  rtCriticsRating: Number
+  rtCriticsRating: Number,
 });
